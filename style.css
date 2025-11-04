@@ -1,0 +1,136 @@
+/* style.css */
+
+/* --- 🎨 General Styles --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+/* --- 📝 Form Styles (index.html) --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Adds space between form elements */
+}
+
+form label {
+    font-weight: 600;
+    color: #555;
+}
+
+form input[type="text"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    font-size: 1em;
+}
+
+form textarea {
+    resize: vertical; /* Allow user to resize textarea vertically */
+    min-height: 100px;
+}
+
+form input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* --- 📊 Table Styles (admin.php) --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* Alternating row colors for readability */
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table td form {
+    display: flex;
+    flex-direction: row; /* Make admin form horizontal */
+    gap: 5px;
+    align-items: center;
+}
+
+table td select {
+    padding: 5px;
+}
+
+table td input[type="submit"] {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+table td input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* --- 📱 Responsive Design --- */
+/* As mentioned in  */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+
+    /* Make the admin table scrollable on small screens */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
