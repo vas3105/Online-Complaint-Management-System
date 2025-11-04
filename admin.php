@@ -7,25 +7,19 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
     header("Location: login.php");
     exit;
 }
-
-// --- Your existing code starts here ---
 include 'db_connect.php';
 
-// --- Handle Status Update ---
 // Check if a form was submitted to update a status
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_status'])) {
     $complaint_id = $_POST['id'];
     $new_status = $_POST['status'];
-    
-    // --- Security Improvement: Use Prepared Statements ---
     $stmt = $conn->prepare("UPDATE complaints SET status = ? WHERE id = ?");
     $stmt->bind_param("si", $new_status, $complaint_id);
     $stmt->execute();
     $stmt->close();
-    // $conn->query($update_sql); // Replaced with prepared statement
 }
 
-// --- Fetch All Complaints ---
+// Fetch All Complaints
 $sql = "SELECT id, name, roll_no, category, description, status FROM complaints";
 $result = $conn->query($sql);
 ?>
@@ -59,7 +53,7 @@ $result = $conn->query($sql);
 </head>
 <body>
 <div class="container"> <div class="header-container">
-        [cite_start]<h2>Admin Complaint Dashboard</h2> [cite: 54]
+        <br><h2>Admin Complaint Dashboard</h2><br>
         <a href="logout.php" class="logout-link">Logout</a>
     </div>
 
@@ -96,7 +90,7 @@ $result = $conn->query($sql);
                             </select>
                             <input type='submit' name='update_status' value='Update'>
                         </form>
-                      </td>";
+                    </td>";
                 echo "</tr>";
             }
         } else {
