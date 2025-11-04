@@ -1,5 +1,4 @@
 <?php
-// login_process.php (Original Working Version)
 session_start();
 include 'db_connect.php';
 
